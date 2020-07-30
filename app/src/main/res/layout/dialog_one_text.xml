@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@drawable/dialog_gray_shape"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/mImage"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/mImage2"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#E4E4E4" />
+
+
+    <Button
+        android:id="@+id/no"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="取消"
+        android:textColor="#999999"
+        android:textSize="18sp" />
+
+
+    <!--    <LinearLayout-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="46dp"-->
+    <!--    android:orientation="horizontal">-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/no"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:background="@null"-->
+    <!--        android:gravity="center"-->
+    <!--        android:singleLine="true"-->
+    <!--        android:text="取消"-->
+    <!--        android:textColor="#999999"-->
+    <!--        android:textSize="18sp" />-->
+
+    <!--&lt;!&ndash;    <View&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/mView"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="1px"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:background="#999999" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;    <Button&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:id="@+id/yes"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_width="0dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_height="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:layout_weight="1"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:background="@null"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:gravity="center"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:singleLine="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:text="确定"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textColor="@color/color_3D8DDF"&ndash;&gt;-->
+    <!--&lt;!&ndash;        android:textSize="16sp" />&ndash;&gt;-->
+    <!--</LinearLayout>-->
+</LinearLayout>

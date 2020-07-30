@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mToolbar"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:paddingTop="28dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    app:contentInsetStart="0dp"
+    android:orientation="horizontal"
+    app:titleTextColor="@color/color_333333">
+
+
+
+    <TextView
+        android:id="@+id/mLeftTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="left"
+        android:includeFontPadding="false"
+        android:padding="12dp"
+        android:textColor="@color/color_333333"
+        android:textSize="16sp"
+        tools:text="账单" />
+
+    <TextView
+        android:id="@+id/mTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="false"
+        android:includeFontPadding="false"
+        android:textColor="@color/color_333333"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        android:maxWidth="200dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_gravity="center"
+        tools:text="标题" />
+
+
+    <ImageView
+        android:id="@+id/mRightImg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="12dp"
+        android:paddingLeft="30dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_gravity="right"
+        tools:src="@mipmap/back" />
+
+    <TextView
+        android:id="@+id/mRightTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="right"
+        android:visibility="gone"
+        android:includeFontPadding="false"
+        android:padding="12dp"
+        android:maxWidth="120dp"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        tools:text="账单" />
+
+
+
+</androidx.appcompat.widget.Toolbar>

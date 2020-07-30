@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#1a2b7e"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:text="人体行为检测系统"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/tvTitleClick"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="120dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_title" />
+
+
+        <ImageView
+            android:id="@+id/mExit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/back"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:paddingTop="10dp"
+            />
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:background="#3271cb"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/mDayTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="当日告警"
+                android:layout_marginBottom="40dp"
+                android:textColor="@color/white"
+                android:drawableLeft="@drawable/blt"
+                android:drawablePadding="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/tvNum"
+                app:layout_constraintBottom_toTopOf="@+id/tvNum"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="次"
+                android:layout_below="@+id/mDayTitle"
+                android:layout_toRightOf="@+id/tvNum"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNum"
+                app:layout_constraintStart_toEndOf="@+id/tvNum"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:background="#cfe9fb"
+            android:layout_height="match_parent" />
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:background="#3271cb"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/mMouthTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="当月告警"
+                android:drawablePadding="20dp"
+                android:textColor="@color/white"
+                android:drawableLeft="@drawable/blt"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:layout_above="@+id/tvNumAll"
+                app:layout_constraintBottom_toTopOf="@+id/tvNumAll"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvNumAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="次"
+                android:layout_below="@+id/mMouthTitle"
+                android:layout_toRightOf="@+id/tvNumAll"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNumAll"
+                app:layout_constraintStart_toEndOf="@+id/tvNumAll"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            >
+            <Button
+                android:id="@+id/day"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/btn_selector"
+                android:text="7天"
+                android:textStyle="bold"
+                android:textColor="@drawable/textcolor_selector" />
+
+
+            <Button
+                android:id="@+id/month"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/btn_selector"
+                android:text="30天"
+                android:textStyle="bold"
+                android:textColor="@drawable/textcolor_selector" />
+
+
+        </LinearLayout>
+
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart2"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:background="#cfe9fb"
+            android:layout_height="match_parent" />
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="3">
+
+
+        <LinearLayout
+            android:background="@drawable/bg_ffffff_blue"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_marginRight="5dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#f2f2f2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/bg_rounded_00c1a8_left_10"
+                    android:gravity="center_vertical"
+                    android:text="02 警告级别"
+                    android:textColor="#3271cb"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/bg_rounded_00c1a8_left_10"
+                    android:gravity="center_vertical"
+                    android:text="03 时间"
+                    android:textColor="#3271cb"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/bg_rounded_00c1a8_left_10"
+                    android:gravity="center_vertical"
+                    android:text="04 警告原因"
+                    android:textColor="#3271cb"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:paddingLeft="5dp"
+                    android:background="@drawable/bg_rounded_00c1a8_right_10"
+                    android:gravity="center_vertical"
+                    android:text="05 查看图片"
+                    android:textColor="#3271cb"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+
+                    android:background="@drawable/bg_rounded_00c1a8_10" />
+                <TextView
+                    android:id="@+id/noDateTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/color_666666"
+                    android:textSize="25sp"
+                    android:text="暂无警告"
+                    android:visibility="gone"
+                    />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <Button
+                    android:id="@+id/btnFrist"
+                    style="@style/text_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="首页" />
+
+                <Button
+                    android:id="@+id/btnPre"
+                    style="@style/text_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="上一页" />
+
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/text_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="下一页" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+
+                <Button
+                    android:id="@+id/btnTo"
+                    style="@style/text_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="跳转到"
+                    android:visibility="gone" />
+
+
+                <Button
+                    android:id="@+id/btnLast"
+                    style="@style/text_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="末页" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+<LinearLayout
+    android:background="@drawable/bg_ffffff_blue"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3271cb"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:text="扇形图"
+            android:drawableLeft="@drawable/blt"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/tvNumAll"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="30dp"-->
+        <!--                android:gravity="center_vertical"-->
+        <!--                android:paddingLeft="5dp"-->
+        <!--                android:text=""-->
+        <!--                android:textColor="@color/red"-->
+        <!--                android:textSize="20sp" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="次"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp" />-->
+
+        <Button
+            android:id="@+id/today"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:text="当天"
+            android:textStyle="bold"
+            android:textColor="@drawable/textcolor_selector" />
+
+        <Button
+            android:id="@+id/day7"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:text="7天"
+            android:textStyle="bold"
+            android:textColor="@drawable/textcolor_selector" />
+
+        <Button
+            android:id="@+id/day30"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:text="30天"
+            android:textStyle="bold"
+            android:textColor="@drawable/textcolor_selector" />
+
+
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="2"-->
+<!--        android:orientation="vertical">-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="80dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:paddingTop="30dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="40dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="在押人员行为智能监管系统"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="30sp" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--        <View android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/common_white"-->
+<!--            />-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:paddingTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:paddingBottom="10dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:src="@drawable/blt" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="当日告警"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <TextView&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:id="@+id/tvNum"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:textColor="@color/red"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:textSize="20sp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                tools:text="0" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="次"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_weight="1">&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <com.github.mikephil.charting.charts.BarChart&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:id="@+id/chart"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_height="match_parent" />&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="单位"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:visibility="gone" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </RelativeLayout>&ndash;&gt;-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#3271cb"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingBottom="10dp">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:src="@drawable/blt" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:text="历史告警"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp" />-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tvNumAll"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="30dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text=""&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/red"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="次"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/day"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:textSize="14sp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/btn_selector"-->
+<!--                android:text="日"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@drawable/textcolor_selector" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/month"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:textSize="14sp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/btn_selector"-->
+<!--                android:text="月"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@drawable/textcolor_selector" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/year"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:textSize="14sp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/btn_selector"-->
+<!--                android:text="年"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@drawable/textcolor_selector" />-->
+
+
+<!--        </LinearLayout>-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_weight="1">-->
+
+<!--&lt;!&ndash;            <com.github.mikephil.charting.charts.BarChart&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/chart2"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent" />&ndash;&gt;-->
+
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:text="单位"-->
+<!--                android:visibility="gone" />-->
+
+<!--        </RelativeLayout>-->
+
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="3"-->
+<!--        android:orientation="vertical">-->
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="80dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="right"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:paddingTop="30dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <TextView&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_height="40dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:paddingLeft="20dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:text="监仓异常预警系统"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:textSize="30sp" />&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash;            <ImageView&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:id="@+id/tvTitleClick"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_width="120dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_height="40dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_marginLeft="30dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:layout_marginRight="20dp"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                android:src="@drawable/icon_title" />&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginRight="20dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/btnFrist"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/text_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginRight="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginTop="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginBottom="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="首页" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/btnPre"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/text_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="上一页" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/btnNext"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/text_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="下一页" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <View&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="1dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/btnTo"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/text_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="跳转到"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:visibility="gone" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <Button&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/btnLast"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/text_btn"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginTop="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginBottom="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="末页" />&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="40dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="#f2f2f2"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginRight="20dp">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="2"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/bg_rounded_00c1a8_left_10"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="02 警告级别"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="3"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/bg_rounded_00c1a8_left_10"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="03 时间"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="4"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/bg_rounded_00c1a8_left_10"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="04 警告原因"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="2"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingLeft="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/bg_rounded_00c1a8_right_10"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="05 查看图片"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="#3271cb"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="20sp" />&ndash;&gt;-->
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <FrameLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="match_parent">&ndash;&gt;-->
+<!--&lt;!&ndash;            <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/recycleView"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginLeft="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginRight="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginBottom="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/bg_rounded_00c1a8_10" />&ndash;&gt;-->
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/noDateTv"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/color_666666"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="25sp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="暂无警告"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:visibility="gone"&ndash;&gt;-->
+<!--&lt;!&ndash;                />&ndash;&gt;-->
+<!--&lt;!&ndash;        </FrameLayout>&ndash;&gt;-->
+<!--    </LinearLayout>-->
+
+
+</LinearLayout>
